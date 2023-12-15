@@ -6,4 +6,4 @@ Install JRE and LaTEX (specifically pdflatex);
 Unzip stanford-parser-4.2.0-models.jar
 
 Usage:
-python3 dist.py textfilenamehere.txt
+python3 sentenceanalyzer.py textfilenamehere.txt
