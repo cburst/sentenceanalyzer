@@ -3,7 +3,7 @@ This is a python script that uses the L2SCA to produce a syntactic complexity re
 
 Installation:
 Install JRE, NLTK, and LaTEX (specifically pdflatex);
-Unzip stanford-parser-4.2.0-models.jar
+Unzip stanford-parser
 
 Usage:
 python3 sentenceanalyzer.py textfilenamehere.txt
