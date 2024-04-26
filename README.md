@@ -7,4 +7,4 @@ Unzip stanford-parser;
 make tregex.sh executable (chmod +x tregex.sh)
 
 Usage:
-python3 sentenceanalyzer.py textfilenamehere.txt
+python sentenceanalyzer.py textfilenamehere.txt
