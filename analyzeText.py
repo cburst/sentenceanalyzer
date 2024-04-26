@@ -105,7 +105,7 @@ patterncount[1]=patterncount[1]+patterncount[-1]
 #word count
 infile=open(parsedFile,"r")
 content=infile.read()
-w=len(re.findall("\([A-Z]+\$? [^\)\(-]+\)",content))
+w = len(re.findall("\\([A-Z]+\\$? [^\\)\\(-]+\\)", content))
 infile.close()
 
 #add frequencies of words and other structures to output string
