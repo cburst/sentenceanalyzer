@@ -166,7 +166,7 @@ def analyze_text(output_dir, filenameproc):
     python_exec = sys.executable
 
     # Run analyzeFolder.py on the output_dir
-    folder_result = subprocess.run([python_exec, "analyzeFolder.py", output_dir, analysis_folder_csv], capture_output=True, text=True)
+    folder_result = subprocess.run([python_exec, "analyzeFolder.py", output_dir, analysis_folder_csv])
     print("analyzeFolder.py output:", folder_result.stdout)
     if folder_result.returncode != 0:
         print("Error running analyzeFolder.py:", folder_result.stderr)
@@ -199,7 +199,7 @@ def analyze_text(output_dir, filenameproc):
         print(f"Failed to process CSV: {e}")
 
     # Run analyzeText.py on the processed data
-    text_result = subprocess.run([python_exec, "analyzeText.py", filenameproc, analysis_text_csv], capture_output=True, text=True)
+    text_result = subprocess.run([python_exec, "analyzeText.py", filenameproc, analysis_text_csv])
     print("analyzeText.py output:", text_result.stdout)
     if text_result.returncode != 0:
         print("Error running analyzeText.py:", text_result.stderr)
@@ -342,6 +342,9 @@ def generate_pdf(latex_file, filename):
             if os.path.exists(pdf_generated):
                 os.rename(pdf_generated, pdf_output_filename)
                 print("PDF generated:", pdf_output_filename)
+
+                # Copy the generated PDF to the same directory as the script and text files
+                shutil.copy(pdf_output_filename, os.path.join(os.path.dirname(os.path.realpath(__file__)), os.path.basename(pdf_output_filename)))
             else:
                 print("Expected PDF not found. Check LaTeX output for errors.")
         else:
