@@ -18,7 +18,7 @@ def check_pdflatex():
         print("For Windows, you can download and install MiKTeX or TeX Live from their respective websites.")
         print("For MacOS, MacTeX is a popular choice, available at https://www.tug.org/mactex/.")
         sys.exit(1)
-    print("pdflatex is installed and available.")
+    # print("pdflatex is installed and available.")
 
 # Usage
 check_pdflatex()
@@ -31,7 +31,7 @@ def check_jre():
         print("You can download it from https://www.oracle.com/java/technologies/javase-jre8-downloads.html")
         print("Or, use OpenJDK which is available at https://adoptopenjdk.net/")
         sys.exit(1)
-    print("Java Runtime Environment (JRE) is installed and available.")
+    # print("Java Runtime Environment (JRE) is installed and available.")
     
 # Usage
 check_jre()
@@ -105,7 +105,6 @@ def main():
 	
     cleanup_files(filenameproc, output_dir)
 
-    print("File analyzed.")
 
 # Assuming the pattern is defined globally
 pattern = re.compile(r'[^a-zA-Z0-9 ,.?!;:\'\"()\[\]{}&%-]')
@@ -167,12 +166,11 @@ def analyze_text(output_dir, filenameproc):
 
     # Run analyzeFolder.py on the output_dir
     folder_result = subprocess.run([python_exec, "analyzeFolder.py", output_dir, analysis_folder_csv])
-    print("analyzeFolder.py output:", folder_result.stdout)
+    # print("analyzeFolder.py output:", folder_result.stdout)
     if folder_result.returncode != 0:
         print("Error running analyzeFolder.py:", folder_result.stderr)
         return
-    else:
-        print("analyzeFolder.py completed successfully.")
+
 
     # Process CSV output from analyzeFolder.py
     try:
@@ -200,11 +198,10 @@ def analyze_text(output_dir, filenameproc):
 
     # Run analyzeText.py on the processed data
     text_result = subprocess.run([python_exec, "analyzeText.py", filenameproc, analysis_text_csv])
-    print("analyzeText.py output:", text_result.stdout)
+    # print("analyzeText.py output:", text_result.stdout)
     if text_result.returncode != 0:
         print("Error running analyzeText.py:", text_result.stderr)
-    else:
-        print("analyzeText.py completed successfully.")
+
 
 def transpose_csv(input_csv, output_csv):
     try:
