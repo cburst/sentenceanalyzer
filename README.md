@@ -8,3 +8,5 @@ make tregex.sh executable (chmod +x tregex.sh)
 
 Usage:
 python sentenceanalyzer.py textfilenamehere.txt
+
+Citation: Rose, R. (2024). Improving syntactic complexity in engineering students’ writing through digital portfolios and visual analytics. Manuscript in preparation. 
