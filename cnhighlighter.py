@@ -50,12 +50,25 @@ def read_complex_nominals(tsv_file):
 def generate_latex(text, phrases_to_underline):
     latex_code = r"""\documentclass{article}
 \usepackage{ulem}
+\usepackage{xcolor}
 \usepackage{geometry}
 \geometry{a4paper, margin=1in}
 \sloppy
 \hyphenpenalty=10000
 \tolerance=1000
 \begin{document}
+\indent \textbf{Analysis notes:} \newline
+\indent This PDF file contains your text underlined using the Stanford Parser to emphasize the presence of complex nominals, which in turn are associated with syntactic complexity. Complex nominals are essentially sophisticated names that include several words or phrases as part of the name. Try to use complex nominals often, but as efficiently as possible.
+\newline
+\newline
+\indent \textbf{Contact info:} \newline
+\indent \begin{color}{teal} richard.rose@yonsei.ac.kr \end{color} \newline
+\newline
+\newline
+\indent \textbf{Your text:} 
+\indent
+
+
 """
     for phrase in phrases_to_underline:
         text = text.replace(phrase, r"\uline{" + phrase + r"}")
